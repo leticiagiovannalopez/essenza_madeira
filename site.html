@@ -1,0 +1,1761 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Essenza Madeiras — Assoalhos, decks e restauração de madeira nobre em São Paulo</title>
+<meta name="description" content="Há mais de duas décadas especificando pisos de madeira nobre para os projetos residenciais e corporativos mais exigentes de São Paulo. Cumaru, Ipê, Jatobá, Tauari e essências certificadas com curadoria própria.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --wood-black: #1a1512;
+    --wood-espresso: #2b1f18;
+    --wood-cognac: #7a4a2b;
+    --wood-warm: #b48a5f;
+    --wood-sand: #e8dcc8;
+    --wood-cream: #f5efe4;
+    --wood-paper: #faf6ee;
+    --line: rgba(26, 21, 18, 0.14);
+    --line-light: rgba(26, 21, 18, 0.08);
+    --serif: 'Cormorant Garamond', 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  /* ================ MOTION UTILITIES ================ */
+  @keyframes kenburns {
+    0%   { transform: scale(1.05) translate(0, 0); }
+    100% { transform: scale(1.18) translate(-1.5%, -1%); }
+  }
+  @keyframes fadeUp {
+    0%   { opacity: 0; transform: translateY(28px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    0% { opacity: 0; } 100% { opacity: 1; }
+  }
+  @keyframes lineIn {
+    0% { transform: scaleX(0); }
+    100% { transform: scaleX(1); }
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes floatUp {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1);
+    will-change: transform, opacity;
+  }
+  .reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.12s; }
+  .reveal-delay-2 { transition-delay: 0.24s; }
+  .reveal-delay-3 { transition-delay: 0.36s; }
+  .reveal-delay-4 { transition-delay: 0.48s; }
+  .reveal-delay-5 { transition-delay: 0.6s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .hero-img { animation: none !important; }
+  }
+
+  body {
+    font-family: var(--sans);
+    color: var(--wood-black);
+    background: var(--wood-paper);
+    line-height: 1.55;
+    font-weight: 300;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  img { max-width: 100%; display: block; }
+
+  a { color: inherit; text-decoration: none; }
+
+  .container {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .container-narrow {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* ================ TOP BAR ================ */
+  .topbar {
+    background: var(--wood-black);
+    color: var(--wood-sand);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    padding: 10px 0;
+  }
+  .topbar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .topbar span { opacity: 0.85; }
+  .topbar a { opacity: 0.85; margin-left: 24px; }
+  .topbar a:hover { opacity: 1; }
+
+  /* ================ HEADER ================ */
+  header.site-header {
+    background: var(--wood-paper);
+    border-bottom: 1px solid var(--line-light);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 22px 0;
+  }
+  .nav-left, .nav-right {
+    display: flex;
+    gap: 34px;
+    font-family: var(--sans);
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+  .nav-right { justify-content: flex-end; }
+  .nav-left a, .nav-right a {
+    color: var(--wood-espresso);
+    position: relative;
+    padding: 6px 0;
+    transition: color 0.25s;
+  }
+  .nav-left a::after, .nav-right a:not(.cta-quote)::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    bottom: 0;
+    height: 1px;
+    background: var(--wood-cognac);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s cubic-bezier(.2,.7,.2,1);
+  }
+  .nav-left a:hover::after, .nav-right a:not(.cta-quote):hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  .nav-left a:hover, .nav-right a:hover { color: var(--wood-cognac); }
+  .logo {
+    text-align: center;
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 26px;
+    letter-spacing: 0.28em;
+    color: var(--wood-espresso);
+  }
+  .logo small {
+    display: block;
+    font-family: var(--sans);
+    font-size: 9px;
+    letter-spacing: 0.42em;
+    font-weight: 400;
+    color: var(--wood-cognac);
+    margin-top: 2px;
+  }
+  .cta-quote {
+    background: var(--wood-espresso);
+    color: var(--wood-paper) !important;
+    padding: 10px 20px !important;
+    border-radius: 2px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+  }
+  .cta-quote:hover { background: var(--wood-cognac); color: var(--wood-paper) !important; }
+
+  /* ================ HERO ================ */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    background: var(--wood-black);
+    display: flex;
+    align-items: center;
+    padding: 140px 0 100px;
+  }
+  .hero-img {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=2000&q=85&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.55) saturate(1.05);
+    animation: kenburns 22s ease-out infinite alternate;
+    will-change: transform;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(26,21,18,0.5) 0%, rgba(26,21,18,0.25) 40%, rgba(26,21,18,0.85) 100%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 0 40px;
+    max-width: 1360px;
+    margin: 0 auto;
+    color: var(--wood-paper);
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    margin-bottom: 24px;
+    font-weight: 400;
+    animation: fadeUp 0.9s cubic-bezier(.2,.7,.2,1) 0.15s both;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 40px;
+    height: 1px;
+    background: var(--wood-warm);
+    vertical-align: middle;
+    margin-right: 16px;
+    transform-origin: left;
+    animation: lineIn 1s cubic-bezier(.2,.7,.2,1) 0.1s both;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(34px, 4.6vw, 66px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    max-width: 20ch;
+    margin-bottom: 28px;
+    animation: fadeUp 1.1s cubic-bezier(.2,.7,.2,1) 0.35s both;
+  }
+  .hero-sub, .hero-actions {
+    animation: fadeUp 1.1s cubic-bezier(.2,.7,.2,1) both;
+  }
+  .hero-sub { animation-delay: 0.55s; }
+  .hero-actions { animation-delay: 0.75s; }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--wood-sand);
+  }
+  .hero-sub {
+    font-size: 17px;
+    max-width: 52ch;
+    line-height: 1.55;
+    opacity: 0.9;
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-block;
+    padding: 16px 30px;
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    font-weight: 500;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  .btn-primary {
+    background: var(--wood-paper);
+    color: var(--wood-black);
+  }
+  .btn-primary:hover { background: var(--wood-warm); color: var(--wood-paper); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--wood-paper);
+    border-color: rgba(245, 239, 228, 0.4);
+  }
+  .btn-ghost:hover { border-color: var(--wood-paper); }
+  .btn-dark {
+    background: var(--wood-espresso);
+    color: var(--wood-paper);
+  }
+  .btn-dark:hover { background: var(--wood-cognac); }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    color: var(--wood-paper);
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+
+  /* ================ NUMBERS BAND ================ */
+  .numbers {
+    background: var(--wood-espresso);
+    color: var(--wood-paper);
+    padding: 60px 0;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    text-align: center;
+  }
+  .num-item {
+    border-left: 1px solid rgba(245, 239, 228, 0.15);
+    padding: 8px 24px;
+  }
+  .num-item:first-child { border-left: none; }
+  .num-value {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 52px;
+    line-height: 1;
+    color: var(--wood-warm);
+    margin-bottom: 10px;
+  }
+  .num-value span { font-size: 32px; opacity: 0.8; }
+  .num-label {
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.75;
+    line-height: 1.5;
+  }
+
+  /* ================ SECTION HEADER ================ */
+  section { padding: 120px 0; }
+
+  .section-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--wood-cognac);
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(36px, 4.4vw, 60px);
+    line-height: 1.08;
+    color: var(--wood-black);
+    letter-spacing: -0.01em;
+    max-width: 22ch;
+    margin-bottom: 28px;
+  }
+  .section-title em {
+    font-style: italic;
+    color: var(--wood-cognac);
+    font-weight: 300;
+  }
+  .section-lead {
+    font-size: 18px;
+    line-height: 1.65;
+    color: rgba(26, 21, 18, 0.75);
+    max-width: 56ch;
+    font-weight: 300;
+  }
+
+  /* ================ HISTORIA ================ */
+  .historia {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+  }
+  .historia-img-wrap {
+    position: relative;
+    padding-right: 40px;
+    padding-bottom: 40px;
+  }
+  .historia-img-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 40px 0 0 40px;
+    border: 1px solid var(--wood-warm);
+    z-index: 0;
+  }
+  .historia-img-wrap img {
+    position: relative;
+    z-index: 1;
+    height: 620px;
+    width: 100%;
+    object-fit: cover;
+  }
+  .historia p {
+    font-size: 17px;
+    line-height: 1.75;
+    margin-bottom: 22px;
+    color: rgba(26, 21, 18, 0.82);
+    font-weight: 300;
+  }
+  .historia p.lead-p {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--wood-espresso);
+    margin-bottom: 32px;
+    font-weight: 400;
+  }
+  .signature {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-top: 30px;
+    border-top: 1px solid var(--line);
+  }
+  .signature-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--wood-warm), var(--wood-cognac));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--wood-paper);
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+  }
+  .signature-info { line-height: 1.4; }
+  .signature-info strong { font-weight: 500; font-size: 14px; }
+  .signature-info span { font-size: 12px; color: rgba(26,21,18,0.6); letter-spacing: 0.06em; }
+
+  /* ================ ESSENCIAS ================ */
+  .essencias { background: var(--wood-cream); }
+  .essencias-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-bottom: 80px;
+    align-items: end;
+  }
+  .essencias-header .right-col p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(26,21,18,0.72);
+    font-weight: 300;
+  }
+  .essencias-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+  .essencia-card {
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--wood-paper);
+    transition: background 0.4s ease, transform 0.5s cubic-bezier(.2,.7,.2,1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .essencia-card:hover { background: var(--wood-cream); transform: translateY(-6px); }
+  .essencia-img {
+    height: 260px;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--wood-cognac);
+    position: relative;
+    transition: transform 1.2s cubic-bezier(.2,.7,.2,1), filter 0.6s;
+    filter: saturate(0.95);
+  }
+  .essencia-card:hover .essencia-img { transform: scale(1.06); filter: saturate(1.1); }
+  .essencia-card:hover .essencia-link { color: var(--wood-black); letter-spacing: 0.28em; }
+  .essencia-link { transition: color 0.3s, letter-spacing 0.4s; }
+  .essencia-body { padding: 32px 32px 36px; flex: 1; display: flex; flex-direction: column; }
+  .essencia-nome {
+    font-family: var(--serif);
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    line-height: 1.1;
+  }
+  .essencia-cientifico {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--wood-cognac);
+    margin-bottom: 20px;
+  }
+  .essencia-desc {
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(26,21,18,0.72);
+    margin-bottom: 24px;
+    font-weight: 300;
+    flex: 1;
+  }
+  .essencia-specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line-light);
+    margin-bottom: 22px;
+  }
+  .spec-label {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(26,21,18,0.5);
+    margin-bottom: 2px;
+    display: block;
+  }
+  .spec-value {
+    font-size: 13px;
+    color: var(--wood-espresso);
+    font-weight: 500;
+  }
+  .essencia-link {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--wood-cognac);
+    font-weight: 500;
+  }
+  .essencia-link::after { content: ' →'; }
+
+  /* ================ PORTFOLIO ================ */
+  .portfolio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 60px;
+    gap: 60px;
+  }
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 180px;
+    gap: 20px;
+  }
+  .p-item {
+    position: relative;
+    overflow: hidden;
+    background: var(--wood-espresso);
+    cursor: pointer;
+  }
+  .p-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.6s cubic-bezier(.2,.7,.2,1), filter 0.6s;
+    filter: brightness(0.92);
+  }
+  .p-item:hover img { transform: scale(1.08); filter: brightness(1); }
+  .p-item .p-caption { transition: transform 0.6s cubic-bezier(.2,.7,.2,1); }
+  .p-item:hover .p-caption { transform: translateY(-6px); }
+  .p-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 55%, rgba(26,21,18,0.75) 100%);
+    pointer-events: none;
+  }
+  .p-caption {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    color: var(--wood-paper);
+    z-index: 2;
+  }
+  .p-caption h4 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .p-caption span {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+  /* Grid areas */
+  .p-1 { grid-column: span 7; grid-row: span 2; }
+  .p-2 { grid-column: span 5; grid-row: span 2; }
+  .p-3 { grid-column: span 4; grid-row: span 2; }
+  .p-4 { grid-column: span 4; grid-row: span 2; }
+  .p-5 { grid-column: span 4; grid-row: span 2; }
+  .p-6 { grid-column: span 6; grid-row: span 2; }
+  .p-7 { grid-column: span 6; grid-row: span 2; }
+
+  /* ================ RESTAURAÇÃO ================ */
+  .restauracao {
+    background: var(--wood-black);
+    color: var(--wood-paper);
+    padding: 140px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .restauracao-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+  }
+  .restauracao .section-eyebrow { color: var(--wood-warm); }
+  .restauracao .section-title { color: var(--wood-paper); }
+  .restauracao .section-title em { color: var(--wood-warm); }
+  .restauracao-lead {
+    font-size: 17px;
+    line-height: 1.7;
+    opacity: 0.8;
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+  .process-list {
+    list-style: none;
+    counter-reset: step;
+  }
+  .process-list li {
+    counter-increment: step;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(245,239,228,0.12);
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 24px;
+    align-items: baseline;
+  }
+  .process-list li::before {
+    content: '0' counter(step);
+    font-family: var(--serif);
+    font-size: 28px;
+    color: var(--wood-warm);
+    font-weight: 400;
+  }
+  .process-list h5 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .process-list p {
+    font-size: 14px;
+    line-height: 1.6;
+    opacity: 0.75;
+    font-weight: 300;
+  }
+  .restauracao-img {
+    background-image: url('https://images.unsplash.com/photo-1618221118493-9cfa1a1c00da?w=1400&q=85&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    height: 700px;
+    position: relative;
+  }
+  .badge-ecologic {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: var(--wood-paper);
+    color: var(--wood-espresso);
+    padding: 14px 20px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    max-width: 200px;
+  }
+  .badge-ecologic strong {
+    display: block;
+    font-family: var(--serif);
+    font-size: 20px;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    font-weight: 500;
+    color: var(--wood-cognac);
+    margin-top: 4px;
+  }
+
+  /* ================ ESPECIFICAÇÃO ================ */
+  .especificacao {
+    background: var(--wood-cream);
+    padding: 100px 0;
+  }
+  .especificacao-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .especificacao h3 {
+    font-family: var(--serif);
+    font-size: 42px;
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .especificacao h3 em { font-style: italic; color: var(--wood-cognac); }
+  .especificacao p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(26,21,18,0.75);
+    margin-bottom: 32px;
+    max-width: 46ch;
+    font-weight: 300;
+  }
+  .especificacao-features {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 40px;
+  }
+  .especificacao-features li {
+    font-size: 14px;
+    color: var(--wood-espresso);
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+    font-weight: 400;
+  }
+  .especificacao-features li::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--wood-warm);
+    border-radius: 50%;
+    flex-shrink: 0;
+    transform: translateY(-2px);
+  }
+  .especificacao-side {
+    background: var(--wood-paper);
+    padding: 60px 50px;
+    border: 1px solid var(--line);
+  }
+  .especificacao-side h4 {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    line-height: 1.2;
+  }
+  .form-field {
+    margin-bottom: 20px;
+  }
+  .form-field label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(26,21,18,0.6);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .form-field input,
+  .form-field select {
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    border-bottom: 1px solid var(--line);
+    background: transparent;
+    font-family: var(--sans);
+    font-size: 15px;
+    color: var(--wood-espresso);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-field input:focus,
+  .form-field select:focus { border-bottom-color: var(--wood-cognac); }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  /* ================ QUEM CONFIA ================ */
+  .confia {
+    padding: 100px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--wood-paper);
+  }
+  .confia-title {
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--wood-cognac);
+    margin-bottom: 50px;
+    font-weight: 500;
+  }
+  .logos-marquee {
+    overflow: hidden;
+    position: relative;
+    mask-image: linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  }
+  .logos-track {
+    display: flex;
+    gap: 100px;
+    align-items: center;
+    width: max-content;
+    animation: marquee 38s linear infinite;
+  }
+  .logos-marquee:hover .logos-track { animation-play-state: paused; }
+  .logo-item {
+    text-align: center;
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 500;
+    color: rgba(26,21,18,0.4);
+    letter-spacing: 0.05em;
+    transition: color 0.3s;
+    line-height: 1.2;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .logo-item small {
+    display: block;
+    font-family: var(--sans);
+    font-size: 9px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    margin-top: 3px;
+    font-weight: 400;
+  }
+  .logo-item:hover { color: var(--wood-espresso); }
+
+  /* ================ DEPOIMENTO ================ */
+  .depoimento {
+    padding: 140px 0;
+    background: var(--wood-sand);
+    text-align: center;
+  }
+  .depoimento-quote {
+    font-family: var(--serif);
+    font-size: clamp(28px, 3.6vw, 48px);
+    line-height: 1.3;
+    font-style: italic;
+    color: var(--wood-espresso);
+    max-width: 24ch;
+    margin: 0 auto 40px;
+    font-weight: 400;
+  }
+  .depoimento-quote::before {
+    content: '"';
+    display: block;
+    font-size: 100px;
+    color: var(--wood-cognac);
+    line-height: 0.6;
+    margin-bottom: 20px;
+    opacity: 0.5;
+  }
+  .depoimento-author {
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--wood-cognac);
+    font-weight: 500;
+  }
+  .depoimento-author span {
+    display: block;
+    text-transform: none;
+    letter-spacing: 0.04em;
+    color: rgba(26,21,18,0.6);
+    font-weight: 300;
+    margin-top: 4px;
+    font-size: 12px;
+  }
+
+  /* ================ DIARIO / BLOG ================ */
+  .diario {
+    padding: 130px 0;
+  }
+  .diario-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 60px;
+  }
+  .diario-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  .diario-card {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform 0.5s cubic-bezier(.2,.7,.2,1);
+  }
+  .diario-card:hover { transform: translateY(-8px); }
+  .diario-img-wrap {
+    overflow: hidden;
+    margin-bottom: 22px;
+    height: 280px;
+  }
+  .diario-img {
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 1.4s cubic-bezier(.2,.7,.2,1);
+  }
+  .diario-card:hover .diario-img { transform: scale(1.08); }
+  .diario-card h4 { transition: color 0.3s; }
+  .diario-card:hover h4 { color: var(--wood-cognac); }
+  .diario-meta {
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--wood-cognac);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .diario-meta span { color: rgba(26,21,18,0.45); margin: 0 8px; }
+  .diario-card h4 {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    color: var(--wood-black);
+  }
+  .diario-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(26,21,18,0.7);
+    font-weight: 300;
+  }
+
+  /* ================ CTA FINAL ================ */
+  .cta-final {
+    background: var(--wood-espresso);
+    color: var(--wood-paper);
+    padding: 140px 0;
+    text-align: center;
+    background-image: linear-gradient(rgba(26,21,18,0.85), rgba(26,21,18,0.9)), url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=2000&q=85&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  .cta-final .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--wood-warm);
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+  .cta-final h2 {
+    font-family: var(--serif);
+    font-size: clamp(40px, 5vw, 72px);
+    font-weight: 400;
+    line-height: 1.08;
+    max-width: 20ch;
+    margin: 0 auto 30px;
+  }
+  .cta-final h2 em { font-style: italic; color: var(--wood-warm); }
+  .cta-final p {
+    font-size: 18px;
+    max-width: 52ch;
+    margin: 0 auto 44px;
+    opacity: 0.85;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+  .cta-actions { display: inline-flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+
+  /* ================ FOOTER ================ */
+  footer {
+    background: var(--wood-black);
+    color: var(--wood-sand);
+    padding: 90px 0 40px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.2fr;
+    gap: 60px;
+    margin-bottom: 70px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid rgba(245,239,228,0.1);
+  }
+  .footer-logo {
+    font-family: var(--serif);
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    color: var(--wood-paper);
+    margin-bottom: 20px;
+  }
+  .footer-logo small {
+    display: block;
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.42em;
+    color: var(--wood-warm);
+    margin-top: 4px;
+    font-weight: 400;
+  }
+  .footer-tagline {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 17px;
+    line-height: 1.6;
+    color: rgba(245,239,228,0.7);
+    max-width: 36ch;
+    margin-bottom: 30px;
+  }
+  .footer-socials {
+    display: flex;
+    gap: 14px;
+  }
+  .footer-socials a {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(245,239,228,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    transition: all 0.2s;
+    color: var(--wood-sand);
+  }
+  .footer-socials a:hover { background: var(--wood-warm); border-color: var(--wood-warm); color: var(--wood-black); }
+  .footer-col h6 {
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--wood-warm);
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 12px; }
+  .footer-col a {
+    color: rgba(245,239,228,0.75);
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--wood-paper); }
+  .footer-contact {
+    font-size: 13px;
+    line-height: 1.8;
+    color: rgba(245,239,228,0.75);
+  }
+  .footer-contact strong {
+    display: block;
+    color: var(--wood-paper);
+    font-weight: 500;
+    margin-bottom: 6px;
+    margin-top: 20px;
+  }
+  .footer-contact strong:first-child { margin-top: 0; }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: rgba(245,239,228,0.4);
+  }
+
+  /* ================ FLOATING WHATSAPP ================ */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--wood-espresso);
+    color: var(--wood-paper);
+    padding: 14px 22px;
+    border-radius: 100px;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 500;
+    z-index: 90;
+    box-shadow: 0 12px 40px rgba(26,21,18,0.35);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s;
+  }
+  .whatsapp-float:hover { background: var(--wood-cognac); transform: translateY(-2px); }
+  .whatsapp-float::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #4ade80;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.3);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.3); }
+    50% { box-shadow: 0 0 0 6px rgba(74, 222, 128, 0.15); }
+  }
+
+  /* ================ RESPONSIVE ================ */
+  @media (max-width: 1024px) {
+    .nav { grid-template-columns: 1fr auto; }
+    .nav-left { display: none; }
+    .historia, .restauracao-grid, .especificacao-inner, .essencias-header { grid-template-columns: 1fr; gap: 60px; }
+    .historia-img-wrap img { height: 460px; }
+    .numbers-grid, .diario-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+    .num-item { border-left: none; }
+    .essencias-grid, .logos-strip { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .portfolio-grid { grid-template-columns: repeat(6, 1fr); grid-auto-rows: 200px; }
+    .p-1, .p-2, .p-3, .p-4, .p-5, .p-6, .p-7 { grid-column: span 3; grid-row: span 2; }
+  }
+  @media (max-width: 640px) {
+    .container, .container-narrow { padding: 0 24px; }
+    section { padding: 80px 0; }
+    .hero-content { padding-bottom: 60px; }
+    .numbers-grid, .essencias-grid, .diario-grid, .footer-grid, .logos-strip { grid-template-columns: 1fr; }
+    .p-1, .p-2, .p-3, .p-4, .p-5, .p-6, .p-7 { grid-column: span 6; }
+    .form-row { grid-template-columns: 1fr; }
+    .topbar span:not(:first-child) { display: none; }
+    .whatsapp-float { padding: 12px 16px; font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="container topbar-inner">
+    <span>Showroom Morumbi · Segunda a Sexta 08h – 18h · Sábado 09h – 13h</span>
+    <div>
+      <a href="tel:1137446777">(11) 3744-6777</a>
+      <a href="mailto:contato@essenzamadeiras.com.br">contato@essenzamadeiras.com.br</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="container nav">
+    <div class="nav-left">
+      <a href="#">Essências</a>
+      <a href="#">Produtos</a>
+      <a href="#">Projetos</a>
+      <a href="#">Restauração</a>
+    </div>
+    <div class="logo">
+      ESSENZA
+      <small>MADEIRAS · SÃO PAULO</small>
+    </div>
+    <div class="nav-right">
+      <a href="#">Diário</a>
+      <a href="#">Showroom</a>
+      <a href="#" class="cta-quote">Orçamento</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Desde 2003 · Madeiras nobres para arquitetura de autor</div>
+    <h1>Madeira que <em>envelhece com o projeto,</em><br>não contra ele.</h1>
+    <p class="hero-sub">Selecionamos, tratamos e instalamos essências brasileiras certificadas para residências de alto padrão, escritórios e áreas externas em São Paulo. Cumaru, Ipê, Jatobá, Tauari — madeira de verdade, especificada com rigor técnico e assinada por quem entende de obra.</p>
+    <div class="hero-actions">
+      <a href="#essencias" class="btn btn-primary">Ver essências</a>
+      <a href="#orcamento" class="btn btn-ghost">Falar com especialista</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Role · Explore</div>
+</section>
+
+<!-- ============ NÚMEROS ============ -->
+<section class="numbers" style="padding: 60px 0;">
+  <div class="container numbers-grid">
+    <div class="num-item reveal">
+      <div class="num-value"><span class="count" data-target="22">0</span><span>+</span></div>
+      <div class="num-label">Anos<br>especificando madeira nobre</div>
+    </div>
+    <div class="num-item reveal reveal-delay-1">
+      <div class="num-value"><span class="count" data-target="180">0</span><span>k m²</span></div>
+      <div class="num-label">Instalados em<br>obras assinadas</div>
+    </div>
+    <div class="num-item reveal reveal-delay-2">
+      <div class="num-value"><span class="count" data-target="14">0</span></div>
+      <div class="num-label">Essências<br>em curadoria própria</div>
+    </div>
+    <div class="num-item reveal reveal-delay-3">
+      <div class="num-value"><span class="count" data-target="100">0</span><span>%</span></div>
+      <div class="num-label">Madeira de origem<br>certificada e rastreável</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HISTÓRIA ============ -->
+<section id="historia">
+  <div class="container historia">
+    <div class="historia-img-wrap">
+      <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?w=1400&q=85&auto=format&fit=crop" alt="Interior de residência de alto padrão com assoalho de madeira nobre especificado pela Essenza Madeiras">
+    </div>
+    <div>
+      <div class="section-eyebrow">Nossa história</div>
+      <h2 class="section-title">Duas décadas escolhendo <em>a árvore certa</em> para cada projeto.</h2>
+      <p class="lead-p">"Madeira boa não é a mais cara — é a que combina com a luz do ambiente, o clima da cidade e o jeito de viver de quem mora ali."</p>
+      <p>A Essenza começou em 2003 num galpão pequeno no Morumbi, atendendo três escritórios de arquitetura de São Paulo. Vinte e dois anos depois, ainda estamos no Morumbi — mas hoje somos referência de especificação para mais de 400 escritórios, dezenas de construtoras de alto padrão e projetos que passam por Casa Cor, Casa Vogue e Arquitetura & Construção.</p>
+      <p>O que mudou foi a escala. O que não mudou foi o método: cada tábua que sai daqui passa pela mão de alguém que sabe exatamente onde ela vai ser instalada, com qual acabamento e por quantas gerações precisa durar.</p>
+      <div class="signature">
+        <div class="signature-avatar">E</div>
+        <div class="signature-info">
+          <strong>Equipe Essenza</strong>
+          <span>Curadoria & Consultoria Técnica</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ESSÊNCIAS ============ -->
+<section id="essencias" class="essencias">
+  <div class="container">
+    <div class="essencias-header">
+      <div>
+        <div class="section-eyebrow">Curadoria de essências</div>
+        <h2 class="section-title">Cada madeira <em>tem um lugar.</em></h2>
+      </div>
+      <div class="right-col">
+        <p>Trabalhamos com 14 essências brasileiras selecionadas por densidade, comportamento com umidade, cor natural e disponibilidade sustentável. Abaixo, as seis mais especificadas — todas com ficha técnica completa e amostra física disponível no showroom.</p>
+      </div>
+    </div>
+
+    <div class="essencias-grid">
+      <div class="essencia-card">
+        <div class="essencia-img" style="background-image: url('https://images.unsplash.com/photo-1520637836862-4d197d17c55a?w=900&q=85&auto=format&fit=crop')"></div>
+        <div class="essencia-body">
+          <div class="essencia-nome">Cumaru</div>
+          <div class="essencia-cientifico">Dipteryx odorata</div>
+          <p class="essencia-desc">Densa, resistente a fungos e insetos. A escolha padrão para decks, ripados e áreas de piscina onde a madeira precisa aguentar sol pesado de São Paulo por décadas.</p>
+          <div class="essencia-specs">
+            <div>
+              <span class="spec-label">Densidade</span>
+              <span class="spec-value">1.070 kg/m³</span>
+            </div>
+            <div>
+              <span class="spec-label">Aplicação</span>
+              <span class="spec-value">Externa · Deck</span>
+            </div>
+            <div>
+              <span class="spec-label">Cor natural</span>
+              <span class="spec-value">Castanho oliva</span>
+            </div>
+            <div>
+              <span class="spec-label">Vida útil</span>
+              <span class="spec-value">25+ anos externo</span>
+            </div>
+          </div>
+          <a href="#" class="essencia-link">Ficha técnica completa</a>
+        </div>
+      </div>
+
+      <div class="essencia-card">
+        <div class="essencia-img" style="background-image: url('https://images.unsplash.com/photo-1567016376408-0226e4d0c1ea?w=900&q=85&auto=format&fit=crop')"></div>
+        <div class="essencia-body">
+          <div class="essencia-nome">Ipê</div>
+          <div class="essencia-cientifico">Handroanthus spp.</div>
+          <p class="essencia-desc">A madeira brasileira de maior prestígio no exterior. Extremamente durável, cor uniforme que envelhece para um grafite quente característico quando exposta ao tempo.</p>
+          <div class="essencia-specs">
+            <div>
+              <span class="spec-label">Densidade</span>
+              <span class="spec-value">1.085 kg/m³</span>
+            </div>
+            <div>
+              <span class="spec-label">Aplicação</span>
+              <span class="spec-value">Interna · Externa</span>
+            </div>
+            <div>
+              <span class="spec-label">Cor natural</span>
+              <span class="spec-value">Marrom oliva</span>
+            </div>
+            <div>
+              <span class="spec-label">Vida útil</span>
+              <span class="spec-value">40+ anos externo</span>
+            </div>
+          </div>
+          <a href="#" class="essencia-link">Ficha técnica completa</a>
+        </div>
+      </div>
+
+      <div class="essencia-card">
+        <div class="essencia-img" style="background-image: url('https://images.unsplash.com/photo-1616627451515-1a3acfe36b8f?w=900&q=85&auto=format&fit=crop')"></div>
+        <div class="essencia-body">
+          <div class="essencia-nome">Jatobá</div>
+          <div class="essencia-cientifico">Hymenaea courbaril</div>
+          <p class="essencia-desc">O clássico do assoalho residencial. Tom âmbar avermelhado, veio marcado, alta dureza. Combina com projetos contemporâneos e obras de restauro em igual medida.</p>
+          <div class="essencia-specs">
+            <div>
+              <span class="spec-label">Densidade</span>
+              <span class="spec-value">960 kg/m³</span>
+            </div>
+            <div>
+              <span class="spec-label">Aplicação</span>
+              <span class="spec-value">Interna · Assoalho</span>
+            </div>
+            <div>
+              <span class="spec-label">Cor natural</span>
+              <span class="spec-value">Vermelho âmbar</span>
+            </div>
+            <div>
+              <span class="spec-label">Acabamento</span>
+              <span class="spec-value">Óleo · Verniz</span>
+            </div>
+          </div>
+          <a href="#" class="essencia-link">Ficha técnica completa</a>
+        </div>
+      </div>
+
+      <div class="essencia-card">
+        <div class="essencia-img" style="background-image: url('https://images.unsplash.com/photo-1618221118493-9cfa1a1c00da?w=900&q=85&auto=format&fit=crop')"></div>
+        <div class="essencia-body">
+          <div class="essencia-nome">Tauari</div>
+          <div class="essencia-cientifico">Couratari spp.</div>
+          <p class="essencia-desc">Tom claro, quase escandinavo. Escolhida por arquitetos que querem madeira brasileira sem escurecer o ambiente. Excelente estabilidade dimensional.</p>
+          <div class="essencia-specs">
+            <div>
+              <span class="spec-label">Densidade</span>
+              <span class="spec-value">680 kg/m³</span>
+            </div>
+            <div>
+              <span class="spec-label">Aplicação</span>
+              <span class="spec-value">Interna · Assoalho</span>
+            </div>
+            <div>
+              <span class="spec-label">Cor natural</span>
+              <span class="spec-value">Bege dourado</span>
+            </div>
+            <div>
+              <span class="spec-label">Acabamento</span>
+              <span class="spec-value">Óleo natural</span>
+            </div>
+          </div>
+          <a href="#" class="essencia-link">Ficha técnica completa</a>
+        </div>
+      </div>
+
+      <div class="essencia-card">
+        <div class="essencia-img" style="background-image: url('https://images.unsplash.com/photo-1595514535215-9a5e0e8e8b7c?w=900&q=85&auto=format&fit=crop')"></div>
+        <div class="essencia-body">
+          <div class="essencia-nome">Garapeira</div>
+          <div class="essencia-cientifico">Apuleia leiocarpa</div>
+          <p class="essencia-desc">Amarelo esverdeado que envelhece para dourado quente. Alta resistência e desenho de veio discreto — recomendada para grandes áreas contínuas.</p>
+          <div class="essencia-specs">
+            <div>
+              <span class="spec-label">Densidade</span>
+              <span class="spec-value">920 kg/m³</span>
+            </div>
+            <div>
+              <span class="spec-label">Aplicação</span>
+              <span class="spec-value">Interna · Deck</span>
+            </div>
+            <div>
+              <span class="spec-label">Cor natural</span>
+              <span class="spec-value">Amarelo dourado</span>
+            </div>
+            <div>
+              <span class="spec-label">Vida útil</span>
+              <span class="spec-value">30+ anos</span>
+            </div>
+          </div>
+          <a href="#" class="essencia-link">Ficha técnica completa</a>
+        </div>
+      </div>
+
+      <div class="essencia-card">
+        <div class="essencia-img" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=85&auto=format&fit=crop')"></div>
+        <div class="essencia-body">
+          <div class="essencia-nome">Perobinha</div>
+          <div class="essencia-cientifico">Aspidosperma polyneuron</div>
+          <p class="essencia-desc">Tom rosado sutil e superfície aveludada. Uma das preferidas para projetos residenciais com pé-direito baixo e ambientes de luz mais fria.</p>
+          <div class="essencia-specs">
+            <div>
+              <span class="spec-label">Densidade</span>
+              <span class="spec-value">790 kg/m³</span>
+            </div>
+            <div>
+              <span class="spec-label">Aplicação</span>
+              <span class="spec-value">Interna · Assoalho</span>
+            </div>
+            <div>
+              <span class="spec-label">Cor natural</span>
+              <span class="spec-value">Rosado claro</span>
+            </div>
+            <div>
+              <span class="spec-label">Acabamento</span>
+              <span class="spec-value">Óleo · Cera</span>
+            </div>
+          </div>
+          <a href="#" class="essencia-link">Ficha técnica completa</a>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 60px;">
+      <a href="#" class="btn btn-dark">Ver as 14 essências</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PORTFÓLIO ============ -->
+<section id="portfolio">
+  <div class="container">
+    <div class="portfolio-header">
+      <div>
+        <div class="section-eyebrow">Projetos assinados</div>
+        <h2 class="section-title">Onde a madeira <em>fez a diferença.</em></h2>
+      </div>
+      <a href="#" class="btn btn-dark">Portfólio completo</a>
+    </div>
+
+    <div class="portfolio-grid">
+      <div class="p-item p-1">
+        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1400&q=85&auto=format&fit=crop" alt="Deck de cumaru em residência de alto padrão">
+        <div class="p-caption">
+          <h4>Residência Alto de Pinheiros</h4>
+          <span>Deck Cumaru · 210 m²</span>
+        </div>
+      </div>
+      <div class="p-item p-2">
+        <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=1000&q=85&auto=format&fit=crop" alt="Pergolado de cumaru em área externa">
+        <div class="p-caption">
+          <h4>Pergolado Jardins</h4>
+          <span>Cumaru · Ripado sob medida</span>
+        </div>
+      </div>
+      <div class="p-item p-3">
+        <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=900&q=85&auto=format&fit=crop" alt="Ripado de ipê em fachada">
+        <div class="p-caption">
+          <h4>Fachada Vila Nova</h4>
+          <span>Ripado Ipê · 84 m²</span>
+        </div>
+      </div>
+      <div class="p-item p-4">
+        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=900&q=85&auto=format&fit=crop" alt="Assoalho de tauari em apartamento">
+        <div class="p-caption">
+          <h4>Apto Itaim</h4>
+          <span>Assoalho Tauari · 320 m²</span>
+        </div>
+      </div>
+      <div class="p-item p-5">
+        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=900&q=85&auto=format&fit=crop" alt="Escada em grápia restaurada">
+        <div class="p-caption">
+          <h4>Escada Higienópolis</h4>
+          <span>Grápia · Restauro</span>
+        </div>
+      </div>
+      <div class="p-item p-6">
+        <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1200&q=85&auto=format&fit=crop" alt="Deck de cumaru em casa de campo">
+        <div class="p-caption">
+          <h4>Casa de Campo — Cotia</h4>
+          <span>Deck Cumaru · 340 m²</span>
+        </div>
+      </div>
+      <div class="p-item p-7">
+        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&q=85&auto=format&fit=crop" alt="Loft com assoalho de demolição">
+        <div class="p-caption">
+          <h4>Loft Vila Madalena</h4>
+          <span>Assoalho de demolição · 145 m²</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESTAURAÇÃO ============ -->
+<section class="restauracao">
+  <div class="container restauracao-grid">
+    <div>
+      <div class="section-eyebrow">Restauração</div>
+      <h2 class="section-title">Um piso antigo bem restaurado <em>vale mais</em> do que um piso novo mal instalado.</h2>
+      <p class="restauracao-lead">Raspagem sem pó (98% aspirado durante a obra), acabamento à base de água sem cheiro forte e secagem rápida. Ideal para famílias com crianças, pets, e obras habitadas.</p>
+
+      <ol class="process-list">
+        <li>
+          <div>
+            <h5>Raspagem Técnica</h5>
+            <p>Remoção do verniz antigo com maquinário de aspiração acoplada — obra limpa, sem sujeira nos móveis.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h5>Calafetação</h5>
+            <p>Preenchimento das juntas e imperfeições para superfície uniforme e vedada.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h5>Polimento Fino</h5>
+            <p>Preparação da madeira para receber acabamento com máxima aderência.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h5>Ecologic Flash</h5>
+            <p>Aplicação de resina à base de água — fosco, acetinado ou brilho. Sem plastificar a madeira.</p>
+          </div>
+        </li>
+      </ol>
+
+      <div style="margin-top: 40px;">
+        <a href="#orcamento" class="btn btn-primary">Solicitar visita técnica</a>
+      </div>
+    </div>
+
+    <div class="restauracao-img">
+      <div class="badge-ecologic">
+        Sistema<strong>Dust Free</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ESPECIFICAÇÃO PARA ARQUITETOS ============ -->
+<section class="especificacao">
+  <div class="container especificacao-inner">
+    <div>
+      <div class="section-eyebrow">Para arquitetos e designers</div>
+      <h3>Especificação <em>sem surpresas</em> na entrega da obra.</h3>
+      <p>Nosso time atende exclusivamente escritórios de arquitetura com uma linha direta: amostras físicas em 48h, memorial descritivo pronto para caderno técnico e acompanhamento de obra do lançamento à recepção.</p>
+      <ul class="especificacao-features">
+        <li>Amostras em 48h</li>
+        <li>Memorial descritivo pronto</li>
+        <li>Comissão para escritório</li>
+        <li>Visita técnica em obra</li>
+        <li>Suporte a orçamento</li>
+        <li>Programa de referência</li>
+      </ul>
+    </div>
+
+    <div class="especificacao-side">
+      <h4>Cadastro exclusivo para escritórios</h4>
+      <div class="form-field">
+        <label>Nome</label>
+        <input type="text" placeholder="Seu nome">
+      </div>
+      <div class="form-field">
+        <label>Escritório</label>
+        <input type="text" placeholder="Nome do escritório">
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label>E-mail</label>
+          <input type="email" placeholder="voce@escritorio.com">
+        </div>
+        <div class="form-field">
+          <label>WhatsApp</label>
+          <input type="tel" placeholder="(11) 00000-0000">
+        </div>
+      </div>
+      <div class="form-field">
+        <label>Projetos por ano</label>
+        <select>
+          <option>Selecione</option>
+          <option>Até 5</option>
+          <option>De 5 a 15</option>
+          <option>Mais de 15</option>
+        </select>
+      </div>
+      <button class="btn btn-dark" style="width: 100%; margin-top: 12px;">Solicitar cadastro</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUEM CONFIA ============ -->
+<section class="confia">
+  <div class="container">
+    <div class="confia-title">Especificados por escritórios que assinam obras em</div>
+    <div class="logos-marquee">
+      <div class="logos-track">
+        <div class="logo-item">Casa Cor<small>SP</small></div>
+        <div class="logo-item">Casa Vogue<small>Brasil</small></div>
+        <div class="logo-item">Casa Claudia<small>Reforma</small></div>
+        <div class="logo-item">Arq &amp; Const.<small>PINI</small></div>
+        <div class="logo-item">Habitare<small>Editora</small></div>
+        <div class="logo-item">Dezeen<small>São Paulo</small></div>
+        <div class="logo-item">Elle Decor<small>Brasil</small></div>
+        <div class="logo-item">AD Magazine<small>Brasil</small></div>
+        <!-- duplicate for seamless loop -->
+        <div class="logo-item">Casa Cor<small>SP</small></div>
+        <div class="logo-item">Casa Vogue<small>Brasil</small></div>
+        <div class="logo-item">Casa Claudia<small>Reforma</small></div>
+        <div class="logo-item">Arq &amp; Const.<small>PINI</small></div>
+        <div class="logo-item">Habitare<small>Editora</small></div>
+        <div class="logo-item">Dezeen<small>São Paulo</small></div>
+        <div class="logo-item">Elle Decor<small>Brasil</small></div>
+        <div class="logo-item">AD Magazine<small>Brasil</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEPOIMENTO ============ -->
+<section class="depoimento">
+  <div class="container-narrow">
+    <p class="depoimento-quote">Especifico Essenza há oito anos. É o único fornecedor que ainda me liga se percebe que a essência que pedi não vai combinar com a luz do projeto.</p>
+    <div class="depoimento-author">
+      Marina Almeida
+      <span>Almeida Arquitetura · São Paulo</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIÁRIO ============ -->
+<section class="diario">
+  <div class="container">
+    <div class="diario-header">
+      <div>
+        <div class="section-eyebrow">Diário</div>
+        <h2 class="section-title">Notas de <em>especificação.</em></h2>
+      </div>
+      <a href="#" class="btn btn-dark">Ver todos os artigos</a>
+    </div>
+
+    <div class="diario-grid">
+      <article class="diario-card">
+        <div class="diario-img-wrap"><div class="diario-img" style="background-image: url('https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=800&q=85&auto=format&fit=crop')"></div></div>
+        <div class="diario-meta">Guia técnico<span>·</span>8 min de leitura</div>
+        <h4>Cumaru ou Ipê: como escolher para deck em São Paulo</h4>
+        <p>Densidade, cor, custo por m² e comportamento após dois invernos. Um comparativo honesto entre as duas madeiras mais especificadas para áreas externas no Sudeste.</p>
+      </article>
+
+      <article class="diario-card">
+        <div class="diario-img-wrap"><div class="diario-img" style="background-image: url('https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=800&q=85&auto=format&fit=crop')"></div></div>
+        <div class="diario-meta">Manutenção<span>·</span>5 min de leitura</div>
+        <h4>Meu piso encardiu — restauro ou troco?</h4>
+        <p>Um diagnóstico simples que qualquer proprietário pode fazer em casa para decidir se vale a pena chamar o restaurador ou se o piso já pediu aposentadoria.</p>
+      </article>
+
+      <article class="diario-card">
+        <div class="diario-img-wrap"><div class="diario-img" style="background-image: url('https://images.unsplash.com/photo-1587985064135-0366536eab42?w=800&q=85&auto=format&fit=crop')"></div></div>
+        <div class="diario-meta">Sustentabilidade<span>·</span>6 min de leitura</div>
+        <h4>Madeira de demolição: quando faz sentido usar</h4>
+        <p>O charme é inegável — mas nem toda obra comporta as limitações dimensionais. Casos reais em que o assoalho de demolição foi (e não foi) a escolha certa.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section id="orcamento" class="cta-final">
+  <div class="container-narrow">
+    <div class="eyebrow">Vamos conversar</div>
+    <h2>Traga a planta. <em>Devolvemos com a essência certa.</em></h2>
+    <p>Nossa equipe técnica analisa sua planta, propõe as essências mais adequadas ao ambiente e ao clima, e entrega orçamento detalhado por m² instalado — normalmente em até três dias úteis.</p>
+    <div class="cta-actions">
+      <a href="#" class="btn btn-primary">Enviar planta</a>
+      <a href="#" class="btn btn-ghost">Visitar showroom</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">ESSENZA<small>MADEIRAS · SÃO PAULO</small></div>
+        <p class="footer-tagline">Madeira nobre selecionada, tratada e instalada por gente que ainda liga se a essência combina com a luz do seu projeto.</p>
+        <div class="footer-socials">
+          <a href="#" title="Instagram">IG</a>
+          <a href="#" title="YouTube">YT</a>
+          <a href="#" title="Pinterest">Pi</a>
+          <a href="#" title="LinkedIn">In</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h6>Explorar</h6>
+        <ul>
+          <li><a href="#">Essências</a></li>
+          <li><a href="#">Assoalhos maciços</a></li>
+          <li><a href="#">Pisos engenheirados</a></li>
+          <li><a href="#">Decks e áreas externas</a></li>
+          <li><a href="#">Tacos e parquets</a></li>
+          <li><a href="#">Revestimentos e painéis</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h6>Serviços</h6>
+        <ul>
+          <li><a href="#">Consultoria técnica</a></li>
+          <li><a href="#">Restauração</a></li>
+          <li><a href="#">Visita à obra</a></li>
+          <li><a href="#">Cadastro arquitetos</a></li>
+          <li><a href="#">Como cuidar do seu piso</a></li>
+          <li><a href="#">Diário Essenza</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h6>Contato</h6>
+        <div class="footer-contact">
+          <strong>Showroom Morumbi</strong>
+          Avenida Morumbi, 4.980<br>
+          Morumbi · São Paulo · SP<br>
+          CEP 05506-300
+
+          <strong>Atendimento</strong>
+          Seg. a Sex. 08h–18h<br>
+          Sábado 09h–13h
+
+          <strong>Fale conosco</strong>
+          (11) 3744-6777<br>
+          contato@essenzamadeiras.com.br
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 Essenza Madeiras · CNPJ 00.000.000/0001-00 · Madeira de origem legal DOF/IBAMA</div>
+      <div>Política de privacidade · Termos · LGPD</div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/551137446777" class="whatsapp-float">Falar no WhatsApp</a>
+
+</body>
+</html>
