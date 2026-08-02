@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script>document.documentElement.className += ' js';</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>As 14 Essências | Essenza Madeiras</title>
+<meta name="description" content="Catálogo completo das 14 madeiras brasileiras nobres com curadoria da Essenza Madeiras. Cumaru, Ipê, Jatobá, Sucupira, Angelim e outras — fichas técnicas, aplicações e amostras.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --wood-black: #1a1512;
+    --wood-espresso: #2b1f18;
+    --wood-cognac: #7a4a2b;
+    --wood-warm: #b48a5f;
+    --wood-sand: #e8dcc8;
+    --wood-cream: #f5efe4;
+    --wood-paper: #faf6ee;
+    --line: rgba(26, 21, 18, 0.14);
+    --line-light: rgba(26, 21, 18, 0.08);
+    --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    --sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  html, body { overflow-x: hidden; }
+
+  body {
+    font-family: var(--sans);
+    color: var(--wood-black);
+    background: var(--wood-paper);
+    line-height: 1.6;
+    font-weight: 300;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+
+  .container {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* ============ MOTION ============ */
+  @keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(24px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes lineIn { 0% { transform: scaleX(0); } 100% { transform: scaleX(1); } }
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 1.3s cubic-bezier(0.16,1,0.3,1), transform 1.3s cubic-bezier(0.16,1,0.3,1);
+  }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+  html:not(.js) .reveal { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+  /* ============ BACK BAR ============ */
+  .back-bar {
+    background: var(--wood-black);
+    color: var(--wood-paper);
+    padding: 14px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(245,239,228,0.08);
+  }
+  .back-bar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--wood-paper);
+    opacity: 0.85;
+    transition: opacity 0.25s, gap 0.35s cubic-bezier(0.16,1,0.3,1);
+    font-weight: 400;
+  }
+  .back-link:hover { opacity: 1; gap: 16px; }
+  .back-link .arrow {
+    display: inline-block;
+    width: 22px;
+    height: 1px;
+    background: var(--wood-paper);
+    position: relative;
+    transition: width 0.35s cubic-bezier(0.16,1,0.3,1);
+  }
+  .back-link .arrow::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -3px;
+    width: 6px;
+    height: 6px;
+    border-left: 1px solid var(--wood-paper);
+    border-bottom: 1px solid var(--wood-paper);
+    transform: rotate(45deg);
+  }
+  .back-link:hover .arrow { width: 30px; }
+  .back-bar-meta {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--wood-warm);
+    font-weight: 400;
+  }
+  .back-bar-meta span { color: rgba(245,239,228,0.4); margin: 0 10px; }
+
+  /* ============ HERO ============ */
+  .page-hero {
+    background: var(--wood-espresso);
+    color: var(--wood-paper);
+    padding: 110px 0 90px;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: -10%;
+    width: 60%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=85&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.28;
+    mask-image: linear-gradient(90deg, transparent 0%, #000 40%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 40%);
+  }
+  .page-hero-content { position: relative; z-index: 2; max-width: 780px; }
+  .page-hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--wood-warm);
+    margin-bottom: 22px;
+    font-weight: 500;
+    animation: fadeUp 1.2s cubic-bezier(0.16,1,0.3,1) 0.1s both;
+  }
+  .page-hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 40px;
+    height: 1px;
+    background: var(--wood-warm);
+    vertical-align: middle;
+    margin-right: 16px;
+    transform-origin: left;
+    animation: lineIn 1.2s cubic-bezier(0.16,1,0.3,1) 0.1s both;
+  }
+  .page-hero h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(46px, 6vw, 92px);
+    line-height: 1.02;
+    letter-spacing: -0.015em;
+    margin-bottom: 24px;
+    animation: fadeUp 1.3s cubic-bezier(0.16,1,0.3,1) 0.22s both;
+  }
+  .page-hero h1 em { font-style: italic; color: var(--wood-warm); font-weight: 300; }
+  .page-hero p {
+    font-size: 18px;
+    line-height: 1.65;
+    max-width: 60ch;
+    opacity: 0.85;
+    font-weight: 300;
+    animation: fadeUp 1.3s cubic-bezier(0.16,1,0.3,1) 0.34s both;
+  }
+
+  /* ============ FILTERS ============ */
+  .filters-bar {
+    background: var(--wood-paper);
+    border-bottom: 1px solid var(--line);
+    padding: 24px 0;
+    position: sticky;
+    top: 47px;
+    z-index: 90;
+  }
+  .filters-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  .filters-label {
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(26,21,18,0.5);
+    font-weight: 500;
+  }
+  .filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .filter-btn {
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--wood-espresso);
+    padding: 8px 18px;
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-weight: 500;
+  }
+  .filter-btn:hover { border-color: var(--wood-cognac); color: var(--wood-cognac); }
+  .filter-btn.active {
+    background: var(--wood-espresso);
+    border-color: var(--wood-espresso);
+    color: var(--wood-paper);
+  }
+  .count-info {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--wood-cognac);
+  }
+  .count-info strong { font-weight: 500; }
+
+  /* ============ GRID ============ */
+  .grid-section {
+    padding: 80px 0 120px;
+  }
+  .essencias-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  .card {
+    background: var(--wood-paper);
+    border: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.5s cubic-bezier(0.2,0.7,0.2,1), box-shadow 0.5s;
+    position: relative;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(26,21,18,0.12);
+  }
+  .card-img-wrap {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+    background: var(--wood-cognac);
+  }
+  /* Fallback específico por essência — cor real da madeira caso imagem falhe */
+  .card[data-wood="cumaru"] .card-img-wrap        { background: linear-gradient(135deg, #6b3d1f 0%, #4a2712 100%); }
+  .card[data-wood="ipe"] .card-img-wrap           { background: linear-gradient(135deg, #4a3820 0%, #2d2515 100%); }
+  .card[data-wood="jatoba"] .card-img-wrap        { background: linear-gradient(135deg, #8a3f1a 0%, #5a2810 100%); }
+  .card[data-wood="tauari"] .card-img-wrap        { background: linear-gradient(135deg, #c9a877 0%, #a08050 100%); }
+  .card[data-wood="garapeira"] .card-img-wrap     { background: linear-gradient(135deg, #b98935 0%, #7c5820 100%); }
+  .card[data-wood="perobinha"] .card-img-wrap     { background: linear-gradient(135deg, #d3aa8f 0%, #a67f60 100%); }
+  .card[data-wood="sucupira"] .card-img-wrap      { background: linear-gradient(135deg, #4a2818 0%, #2b160e 100%); }
+  .card[data-wood="angelim"] .card-img-wrap       { background: linear-gradient(135deg, #b57a3c 0%, #7a5020 100%); }
+  .card[data-wood="muiracatiara"] .card-img-wrap  { background: linear-gradient(135deg, #6b3820 0%, #3d1e10 100%); }
+  .card[data-wood="mirindiba"] .card-img-wrap     { background: linear-gradient(135deg, #7c4a28 0%, #4d2c14 100%); }
+  .card[data-wood="oiticica"] .card-img-wrap      { background: linear-gradient(135deg, #c4954a 0%, #8a6428 100%); }
+  .card[data-wood="freijo"] .card-img-wrap        { background: linear-gradient(135deg, #8f6039 0%, #5c3a1e 100%); }
+  .card[data-wood="cumaru-ferro"] .card-img-wrap  { background: linear-gradient(135deg, #4a2d18 0%, #26140a 100%); }
+  .card[data-wood="peroba-campo"] .card-img-wrap  { background: linear-gradient(135deg, #d1b077 0%, #96784a 100%); }
+  .card-img {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 1.3s cubic-bezier(0.2,0.7,0.2,1);
+    filter: saturate(0.95);
+  }
+  .card:hover .card-img { transform: scale(1.06); filter: saturate(1.08); }
+  .card-badges {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    display: flex;
+    gap: 6px;
+    z-index: 2;
+  }
+  .badge {
+    background: var(--wood-paper);
+    color: var(--wood-espresso);
+    padding: 5px 10px;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .badge.dark { background: var(--wood-espresso); color: var(--wood-paper); }
+  .badge.new {
+    background: var(--wood-warm);
+    color: var(--wood-black);
+  }
+  .card-density {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    color: var(--wood-paper);
+    text-align: right;
+    z-index: 2;
+    font-family: var(--serif);
+    line-height: 1;
+  }
+  .card-density .val {
+    font-size: 26px;
+    font-weight: 500;
+  }
+  .card-density .unit {
+    font-family: var(--sans);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    display: block;
+    margin-top: 3px;
+    font-weight: 400;
+  }
+  .card-img-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(26,21,18,0.15) 0%, transparent 40%, rgba(26,21,18,0.55) 100%);
+    pointer-events: none;
+  }
+  .card-body {
+    padding: 26px 28px 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .card-title {
+    font-family: var(--serif);
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+  .card-cientifico {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--wood-cognac);
+    margin-bottom: 16px;
+  }
+  .card-desc {
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(26,21,18,0.72);
+    font-weight: 300;
+    margin-bottom: 20px;
+    flex: 1;
+  }
+  .card-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line-light);
+  }
+  .tag {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(26,21,18,0.55);
+    padding: 4px 10px;
+    border: 1px solid var(--line);
+    font-weight: 500;
+  }
+  .card-link {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--wood-cognac);
+    font-weight: 500;
+    transition: color 0.3s, letter-spacing 0.4s;
+  }
+  .card:hover .card-link { color: var(--wood-black); letter-spacing: 0.28em; }
+  .card-link::after { content: ' →'; }
+  .card-link.disabled {
+    color: rgba(26,21,18,0.35);
+    cursor: default;
+    pointer-events: none;
+  }
+  .card-link.disabled::after { content: ' · em preparação'; letter-spacing: 0.1em; }
+
+  .card.hidden { display: none; }
+
+  /* ============ CTA FINAL ============ */
+  .cta {
+    background: var(--wood-espresso);
+    color: var(--wood-paper);
+    padding: 120px 0;
+    text-align: center;
+  }
+  .cta h2 {
+    font-family: var(--serif);
+    font-size: clamp(32px, 4vw, 54px);
+    font-weight: 400;
+    line-height: 1.12;
+    max-width: 22ch;
+    margin: 0 auto 22px;
+  }
+  .cta h2 em { font-style: italic; color: var(--wood-warm); }
+  .cta p {
+    font-size: 17px;
+    max-width: 52ch;
+    margin: 0 auto 40px;
+    opacity: 0.82;
+    line-height: 1.65;
+    font-weight: 300;
+  }
+  .btn {
+    display: inline-block;
+    padding: 16px 32px;
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: 1px solid transparent;
+  }
+  .btn-primary { background: var(--wood-paper); color: var(--wood-black); }
+  .btn-primary:hover { background: var(--wood-warm); color: var(--wood-paper); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--wood-paper);
+    border-color: rgba(245,239,228,0.4);
+  }
+  .btn-ghost:hover { border-color: var(--wood-paper); }
+  .cta-actions {
+    display: inline-flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* ============ FOOTER MINI ============ */
+  .footer-mini {
+    background: var(--wood-black);
+    color: var(--wood-sand);
+    padding: 40px 0;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+  .footer-mini .logo {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 0.28em;
+    color: var(--wood-paper);
+    margin-bottom: 8px;
+  }
+  .footer-mini .sub {
+    opacity: 0.5;
+    letter-spacing: 0.16em;
+    font-size: 11px;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 1024px) {
+    .essencias-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+  }
+  @media (max-width: 640px) {
+    .container { padding: 0 20px; }
+    .page-hero { padding: 60px 0 70px; }
+    .page-hero::before { opacity: 0.18; width: 100%; right: 0; }
+    .page-hero h1 { font-size: clamp(34px, 9vw, 48px); }
+    .filters-bar { padding: 16px 0; top: 44px; }
+    .filters-inner { justify-content: flex-start; gap: 12px; }
+    .filters {
+      gap: 6px;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-bottom: 4px;
+      max-width: 100%;
+    }
+    .filters::-webkit-scrollbar { display: none; }
+    .filter-btn { padding: 8px 14px; font-size: 10px; white-space: nowrap; flex-shrink: 0; min-height: 36px; }
+    .count-info { display: none; }
+    .essencias-grid { grid-template-columns: 1fr; gap: 24px; }
+    .grid-section { padding: 50px 0 80px; }
+    .cta { padding: 70px 0; }
+    .cta h2 { font-size: clamp(26px, 7.5vw, 36px); }
+    .btn { padding: 15px 26px; min-height: 48px; }
+    .cta-actions { flex-direction: column; align-items: stretch; width: 100%; max-width: 320px; margin: 0 auto; }
+    .back-bar-meta { display: none; }
+    .card-img-wrap { height: 220px; }
+    .card-body { padding: 24px 22px 26px; }
+    .card-title { font-size: 26px; }
+  }
+  @media (max-width: 400px) {
+    .container { padding: 0 16px; }
+    .card-img-wrap { height: 190px; }
+    .card-density .val { font-size: 22px; }
+    .filter-btn { padding: 7px 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- BACK BAR -->
+<div class="back-bar">
+  <div class="container back-bar-inner">
+    <a href="index.html#essencias" class="back-link">
+      <span class="arrow"></span>
+      Voltar ao site
+    </a>
+    <div class="back-bar-meta">
+      Catálogo <span>·</span> 14 essências brasileiras
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="container page-hero-content">
+    <div class="page-hero-eyebrow">Curadoria completa</div>
+    <h1>As <em>14 essências</em><br>que trabalhamos.</h1>
+    <p>Nossa curadoria começou com três espécies em 2003. Hoje, temos catorze em estoque permanente — todas com origem certificada, amostra física no showroom em Morumbi, e ficha técnica assinada pelo nosso time. Filtre por aplicação abaixo ou explore livremente.</p>
+  </div>
+</section>
+
+<!-- FILTERS -->
+<div class="filters-bar">
+  <div class="container filters-inner">
+    <div class="filters" id="filters">
+      <button class="filter-btn active" data-filter="all">Todas</button>
+      <button class="filter-btn" data-filter="deck">Deck · Externa</button>
+      <button class="filter-btn" data-filter="assoalho">Assoalho · Interna</button>
+      <button class="filter-btn" data-filter="clara">Tons claros</button>
+      <button class="filter-btn" data-filter="escura">Tons escuros</button>
+      <button class="filter-btn" data-filter="ficha">Ficha completa</button>
+    </div>
+    <div class="count-info"><span id="count">14</span> <strong>essências</strong></div>
+  </div>
+</div>
+
+<!-- GRID -->
+<section class="grid-section">
+  <div class="container">
+    <div class="essencias-grid" id="grid">
+
+      <!-- 1. CUMARU -->
+      <a href="ficha-cumaru.html" class="card reveal" data-tags="deck escura ficha" data-wood="cumaru">
+        <div class="card-img-wrap">
+          <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=900&q=85&auto=format&fit=crop')"></div>
+          <div class="card-badges"><span class="badge dark">Deck · Externa</span></div>
+          <div class="card-density"><div class="val">1.070</div><span class="unit">kg/m³</span></div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Cumaru</div>
+          <div class="card-cientifico">Dipteryx odorata</div>
+          <p class="card-desc">A escolha padrão para decks de piscina, ripados e áreas de exposição total. Segunda madeira mais dura da América do Sul.</p>
+          <div class="card-tags"><span class="tag">Externa</span><span class="tag">25+ anos</span><span class="tag">Castanho oliva</span></div>
+          <span class="card-link">Ficha técnica completa</span>
+        </div>
+      </a>
+
+      <!-- 2. IPÊ -->
+      <a href="ficha-ipe.html" class="card reveal" data-tags="deck escura ficha assoalho" data-wood="ipe">
+        <div class="card-img-wrap">
+          <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1567016376408-0226e4d0c1ea?w=900&q=85&auto=format&fit=crop')"></div>
+          <div class="card-badges"><span class="badge dark">Externa · Interna</span></div>
+          <div class="card-density"><div class="val">1.085</div><span class="unit">kg/m³</span></div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Ipê</div>
+          <div class="card-cientifico">Handroanthus spp.</div>
+          <p class="card-desc">A madeira brasileira de maior prestígio internacional. Praticamente não apodrece — 40+ anos documentados em decks externos.</p>
+          <div class="card-tags"><span class="tag">Externa</span><span class="tag">Interna</span><span class="tag">Marrom oliva</span></div>
+          <span class="card-link">Ficha técnica completa</span>
+        </div>
+      </a>
+
+      <!-- 3. JATOBÁ -->
+      <a href="ficha-jatoba.html" class="card reveal" data-tags="assoalho escura ficha" data-wood="jatoba">
+        <div class="card-img-wrap">
+          <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1615529182904-14819c35db37?w=900&q=85&auto=format&fit=crop')"></div>
+          <div class="card-badges"><span class="badge dark">Assoalho · Interna</span></div>
+          <div class="card-density"><div class="val">960</div><span class="unit">kg/m³</span></div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Jatobá</div>
+          <div class="card-cientifico">Hymenaea courbaril</div>
+          <p class="card-desc">O clássico do assoalho residencial brasileiro. Tom âmbar avermelhado, alta dureza, classe C60 de resistência.</p>
+          <div class="card-tags"><span class="tag">Interna</span><span class="tag">Classe C60</span><span class="tag">Vermelho âmbar</span></div>
+          <span class="card-link">Ficha técnica completa</span>
+        </div>
+      </a>
+
+      <!-- 4. TAUARI -->
+      <a href="ficha-tauari.html" class="card reveal" data-tags="assoalho clara ficha" data-wood="tauari">
+        <div class="card-img-wrap">
+          <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1618221118493-9cfa1a1c00da?w=900&q=85&auto=format&fit=crop')"></div>
+          <div class="card-badges"><span class="badge dark">Assoalho · Interna</span></div>
+          <div class="card-density"><div class="val">680</div><span class="unit">kg/m³</span></div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Tauari</div>
+          <div class="card-cientifico">Couratari spp.</div>
+          <p class="card-desc">A resposta brasileira ao carvalho europeu. Tom claro escandinavo com melhor estabilidade em clima tropical.</p>
+          <div class="card-tags"><span class="tag">Interna</span><span class="tag">Grã direita</span><span class="tag">Bege dourado</span></div>
+          <span class="card-link">Ficha técnica completa</span>
+        </div>
+      </a>
+
+      <!-- 5. GARAPEIRA -->
+      <a href="ficha-garapeira.html" class="card reveal" data-tags="assoalho clara ficha" data-wood="garapeira">
+        <div class="card-img-wrap">
+          <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=900&q=85&auto=format&fit=crop')"></div>
+          <div class="card-badges"><span class="badge dark">Interna · Deck coberto</span></div>
+          <div class="card-density"><div class="val">830</div><span class="unit">kg/m³</span></div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Garapeira</div>
+          <div class="card-cientifico">Apuleia leiocarpa</div>
+          <p class="card-desc">A madeira que envelhece para melhor. Instalada com tom amarelo-esverdeado, chega ao dourado profundo em 12 meses.</p>
+          <div class="card-tags"><span class="tag">Interna</span><span class="tag">Deck coberto</span><span class="tag">Amarelo dourado</span></div>
+          <span class="card-link">Ficha técnica completa</span>
+        </div>
+      </a>
+
+      <!-- 6. PEROBINHA -->
+      <a href="ficha-perobinha.html" class="card reveal" data-tags="assoalho clara ficha" data-wood="perobinha">
+        <div class="card-img-wrap">
+          <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=85&auto=format&fit=crop')"></div>
+          <div class="card-badges"><span class="badge dark">Assoalho · Interna</span></div>
+          <div class="card-density"><div class="val">790</div><span class="unit">kg/m³</span></div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Perobinha</div>
+          <div class="card-cientifico">Aspidosperma polyneuron</div>
+          <p class="card-desc">A discreta. Tom rosado sutil, superfície aveludada, FSC obrigatório. Ideal para elegância silenciosa em residencial.</p>
+          <div class="card-tags"><span class="tag">Interna</span><span class="tag">FSC obrig.</span><span class="tag">Rosado claro</span></div>
+          <span class="card-link">Ficha técnica completa</span>
+        </div>
+      </a>
+
+      <!-- 7. SUCUPIRA -->
+      <a href="#" class="card reveal" data-tags="assoalho escura" data-wood="sucupira">
+        <div class="card-img-wrap">
+          <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1615529182904-14819c35db37?w=900&q=85&auto=format&fit=crop')"></div>
+          <div class="card-badges"><span class="badge dark">Assoalho · Interna</span><span class="badge new">Em breve</span></div>
+          <div class="card-density"><div class="val">950</div><span class="unit">kg/m³</span></div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Sucupira</div>
+          <div class="card-cientifico">Bowdichia nitida</div>
+          <p class="card-desc">Marrom-escuro com veios pretos característicos. Alta dureza, presença visual marcante — para projetos com pé-direito alto e luz generosa.</p>
+          <div class="card-tags"><span class="tag">Interna</span><span class="tag">Alta dureza</span><span class="tag">Marrom escuro</span></div>
+          <span class="card-link disabled">Ficha técnica</span>
+        </div>
+      </a>
+
+      <!-- 8. ANGELIM PEDRA -->
+      <a href="#" class="card reveal" data-tags="deck assoalho escura" data-wood="angelim">
+        <div class="card-img-wrap">
+          <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=900&q=85&auto=format&fit=crop')"></div>
+          <div class="card-badges"><span class="badge dark">Externa · Interna</span><span class="badge new">Em breve</span></div>
+          <div class="card-density"><div class="val">910</div><span class="unit">kg/m³</span></div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Angelim Pedra</div>
+          <div class="card-cientifico">Hymenolobium petraeum</div>
+          <p class="card-desc">Castanho amarelado, veio marcado. Uma das madeiras mais versáteis do catálogo — funciona bem em deck e assoalho, custo intermediário.</p>
+          <div class="card-tags"><span class="tag">Externa</span><span class="tag">Versátil</span><span class="tag">Castanho amarelo</span></div>
+          <span class="card-link disabled">Ficha técnica</span>
+        </div>
+      </a>
+
+      <!-- 9. MUIRACATIARA -->
+      <a href="#" class="card reveal" data-tags="assoalho escura" data-wood="muiracatiara">
+        <div class="card-img-wrap">
+          <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1615529182904-14819c35db37?w=900&q=85&auto=format&fit=crop')"></div>
+          <div class="card-badges"><span class="badge dark">Assoalho · Interna</span><span class="badge new">Em breve</span></div>
+          <div class="card-density"><div class="val">850</div><span class="unit">kg/m³</span></div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Muiracatiara</div>
+          <div class="card-cientifico">Astronium lecointei</div>
+          <p class="card-desc">Marrom com listras escuras dramáticas — a mais gráfica das essências brasileiras. Especificada para projetos onde o piso é o próprio destaque.</p>
+          <div class="card-tags"><span class="tag">Interna</span><span class="tag">Veio dramático</span><span class="tag">Marrom listrado</span></div>
+          <span class="card-link disabled">Ficha técnica</span>
+        </div>
+      </a>
+
+      <!-- 10. MIRINDIBA -->
+      <a href="#" class="card reveal" data-tags="deck escura" data-wood="mirindiba">
+        <div class="card-img-wrap">
+          <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1618221118493-9cfa1a1c00da?w=900&q=85&auto=format&fit=crop')"></div>
+          <div class="card-badges"><span class="badge dark">Deck · Externa</span><span class="badge new">Em breve</span></div>
+          <div class="card-density"><div class="val">910</div><span class="unit">kg/m³</span></div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Mirindiba</div>
+          <div class="card-cientifico">Buchenavia spp.</div>
+          <p class="card-desc">Castanho quente com boa estabilidade externa. Alternativa mais acessível ao cumaru em decks residenciais de menor porte.</p>
+          <div class="card-tags"><span class="tag">Externa</span><span class="tag">Deck</span><span class="tag">Castanho quente</span></div>
+          <span class="card-link disabled">Ficha técnica</span>
+        </div>
+      </a>
+
+      <!-- 11. OITICICA -->
+      <a href="#" class="card reveal" data-tags="assoalho clara" data-wood="oiticica">
+        <div class="card-img-wrap">
+          <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=85&auto=format&fit=crop')"></div>
+          <div class="card-badges"><span class="badge dark">Assoalho · Interna</span><span class="badge new">Em breve</span></div>
+          <div class="card-density"><div class="val">800</div><span class="unit">kg/m³</span></div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Oiticica</div>
+          <div class="card-cientifico">Clarisia racemosa</div>
+          <p class="card-desc">Amarelo dourado com fibras longas. Muito usada em tacos e parquets tradicionais — clássica sem ser óbvia.</p>
+          <div class="card-tags"><span class="tag">Interna</span><span class="tag">Taco</span><span class="tag">Amarelo dourado</span></div>
+          <span class="card-link disabled">Ficha técnica</span>
+        </div>
+      </a>
+
+      <!-- 12. FREIJÓ -->
+      <a href="#" class="card reveal" data-tags="assoalho clara" data-wood="peroba-campo">
+        <div class="card-img-wrap">
+          <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=900&q=85&auto=format&fit=crop')"></div>
+          <div class="card-badges"><span class="badge dark">Assoalho · Interna</span><span class="badge new">Em breve</span></div>
+          <div class="card-density"><div class="val">610</div><span class="unit">kg/m³</span></div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Freijó</div>
+          <div class="card-cientifico">Cordia goeldiana</div>
+          <p class="card-desc">Chamada de "teca brasileira". Castanho médio com veio elegante, densidade menor — favorita em marcenaria fina e portas maciças.</p>
+          <div class="card-tags"><span class="tag">Interna</span><span class="tag">Marcenaria</span><span class="tag">Castanho médio</span></div>
+          <span class="card-link disabled">Ficha técnica</span>
+        </div>
+      </a>
+
+      <!-- 13. CUMARU FERRO -->
+      <a href="#" class="card reveal" data-tags="deck escura" data-wood="cumaru-ferro">
+        <div class="card-img-wrap">
+          <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1567016376408-0226e4d0c1ea?w=900&q=85&auto=format&fit=crop')"></div>
+          <div class="card-badges"><span class="badge dark">Deck · Externa</span><span class="badge new">Em breve</span></div>
+          <div class="card-density"><div class="val">1.100</div><span class="unit">kg/m³</span></div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Cumaru Ferro</div>
+          <div class="card-cientifico">Dipteryx odorata (var.)</div>
+          <p class="card-desc">Variação mais densa e escura do cumaru padrão. Para projetos onde o deck é a espinha estrutural — não só revestimento.</p>
+          <div class="card-tags"><span class="tag">Externa</span><span class="tag">Estrutural</span><span class="tag">Castanho escuro</span></div>
+          <span class="card-link disabled">Ficha técnica</span>
+        </div>
+      </a>
+
+      <!-- 14. GRÁPIA (var.) -->
+      <a href="#" class="card reveal" data-tags="assoalho clara">
+        <div class="card-img-wrap">
+          <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&q=85&auto=format&fit=crop')"></div>
+          <div class="card-badges"><span class="badge dark">Assoalho · Restauro</span><span class="badge new">Em breve</span></div>
+          <div class="card-density"><div class="val">800</div><span class="unit">kg/m³</span></div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Peroba do Campo</div>
+          <div class="card-cientifico">Aspidosperma cylindrocarpon</div>
+          <p class="card-desc">Prima nortista da perobinha. Tom mais amarelado, comportamento estável — ideal para restauração de casarões e para paletas quentes.</p>
+          <div class="card-tags"><span class="tag">Interna</span><span class="tag">Restauro</span><span class="tag">Amarelo claro</span></div>
+          <span class="card-link disabled">Ficha técnica</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="container">
+    <h2>Quer <em>amostras físicas</em> das essências que te interessam?</h2>
+    <p>Enviamos amostras para escritórios de arquitetura em até 48h. Para cliente final, o showroom em Morumbi mantém amostras montadas em painéis para visualização real com iluminação natural.</p>
+    <div class="cta-actions">
+      <a href="index.html#orcamento" class="btn btn-primary">Solicitar amostras</a>
+      <a href="index.html" class="btn btn-ghost">Voltar ao site</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-mini">
+  <div class="container">
+    <div class="logo">ESSENZA</div>
+    <div class="sub">MADEIRAS · SÃO PAULO · MORUMBI</div>
+    <div style="margin-top: 20px; opacity: 0.4; font-size: 10px;">© 2026 Essenza Madeiras · Madeira de origem legal DOF/IBAMA</div>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  (function () {
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var targets = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window) || reduceMotion) {
+      targets.forEach(function (el) { el.classList.add('in-view'); });
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+    targets.forEach(function (el) { observer.observe(el); });
+  })();
+
+  // Filter buttons
+  (function () {
+    var buttons = document.querySelectorAll('.filter-btn');
+    var cards = document.querySelectorAll('#grid .card');
+    var countEl = document.getElementById('count');
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        buttons.forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        var f = btn.getAttribute('data-filter');
+        var visible = 0;
+        cards.forEach(function (card) {
+          var tags = card.getAttribute('data-tags') || '';
+          var show = (f === 'all') || tags.indexOf(f) !== -1;
+          card.classList.toggle('hidden', !show);
+          if (show) visible++;
+        });
+        countEl.textContent = visible;
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

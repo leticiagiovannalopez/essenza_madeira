@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script>document.documentElement.className += ' js';</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jatobá — Ficha Técnica | Essenza Madeiras</title>
+<meta name="description" content="Ficha técnica completa do Jatobá (Hymenaea courbaril): o clássico do assoalho residencial brasileiro. Densidade 960 kg/m³, tom âmbar avermelhado, alta durabilidade.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --wood-black: #1a1512;
+    --wood-espresso: #2b1f18;
+    --wood-cognac: #7a4a2b;
+    --wood-warm: #b48a5f;
+    --wood-sand: #e8dcc8;
+    --wood-cream: #f5efe4;
+    --wood-paper: #faf6ee;
+    --line: rgba(26, 21, 18, 0.14);
+    --line-light: rgba(26, 21, 18, 0.08);
+    --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    --sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    /* Cor de destaque específica desta essência */
+    --accent: #8b5a2b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  html, body { overflow-x: hidden; }
+
+  body {
+    font-family: var(--sans);
+    color: var(--wood-black);
+    background: var(--wood-paper);
+    line-height: 1.6;
+    font-weight: 300;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  .container-narrow {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* ================ MOTION ================ */
+  @keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(28px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes lineIn {
+    0% { transform: scaleX(0); }
+    100% { transform: scaleX(1); }
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1), transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+  html:not(.js) .reveal { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ================ BACK BAR ================ */
+  .back-bar {
+    background: var(--wood-black);
+    color: var(--wood-paper);
+    padding: 14px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(245,239,228,0.08);
+  }
+  .back-bar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--wood-paper);
+    opacity: 0.85;
+    transition: opacity 0.25s, gap 0.35s cubic-bezier(0.16,1,0.3,1);
+    font-weight: 400;
+  }
+  .back-link:hover { opacity: 1; gap: 16px; }
+  .back-link .arrow {
+    display: inline-block;
+    width: 22px;
+    height: 1px;
+    background: var(--wood-paper);
+    position: relative;
+    transition: width 0.35s cubic-bezier(0.16,1,0.3,1);
+  }
+  .back-link .arrow::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -3px;
+    width: 6px;
+    height: 6px;
+    border-left: 1px solid var(--wood-paper);
+    border-bottom: 1px solid var(--wood-paper);
+    transform: rotate(45deg);
+  }
+  .back-link:hover .arrow { width: 30px; }
+  .back-bar-meta {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--wood-warm);
+    font-weight: 400;
+  }
+  .back-bar-meta span { color: rgba(245,239,228,0.4); margin: 0 10px; }
+
+  /* ================ HERO ================ */
+  .ficha-hero {
+    background: var(--wood-espresso);
+    color: var(--wood-paper);
+    padding: 100px 0 90px;
+    position: relative;
+    overflow: hidden;
+  }
+  .ficha-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: -10%;
+    width: 60%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1615529182904-14819c35db37?w=1400&q=85&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.32;
+    mask-image: linear-gradient(90deg, transparent 0%, #000 40%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 40%);
+  }
+  .ficha-hero-content { position: relative; z-index: 2; max-width: 780px; }
+  .ficha-hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--wood-warm);
+    margin-bottom: 22px;
+    font-weight: 500;
+    animation: fadeUp 1.2s cubic-bezier(0.16,1,0.3,1) 0.1s both;
+  }
+  .ficha-hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 40px;
+    height: 1px;
+    background: var(--wood-warm);
+    vertical-align: middle;
+    margin-right: 16px;
+    transform-origin: left;
+    animation: lineIn 1.2s cubic-bezier(0.16,1,0.3,1) 0.1s both;
+  }
+  .ficha-hero h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(58px, 8vw, 120px);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    animation: fadeUp 1.3s cubic-bezier(0.16,1,0.3,1) 0.22s both;
+  }
+  .ficha-hero .cientifico {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 22px;
+    color: var(--wood-warm);
+    font-weight: 400;
+    margin-bottom: 44px;
+    animation: fadeUp 1.3s cubic-bezier(0.16,1,0.3,1) 0.32s both;
+  }
+  .ficha-hero .lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(22px, 2.4vw, 30px);
+    line-height: 1.35;
+    color: var(--wood-sand);
+    max-width: 30ch;
+    padding-left: 24px;
+    border-left: 2px solid var(--wood-warm);
+    font-weight: 400;
+    animation: fadeUp 1.4s cubic-bezier(0.16,1,0.3,1) 0.42s both;
+  }
+
+  /* ================ QUICK SPECS BAR ================ */
+  .quick-specs {
+    background: var(--wood-black);
+    color: var(--wood-paper);
+    padding: 40px 0;
+    border-top: 1px solid rgba(245,239,228,0.08);
+  }
+  .quick-specs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: center;
+  }
+  .quick-item {
+    border-left: 1px solid rgba(245,239,228,0.12);
+    padding: 10px 20px;
+  }
+  .quick-item:first-child { border-left: none; }
+  .quick-item .qi-value {
+    font-family: var(--serif);
+    font-size: 34px;
+    font-weight: 400;
+    color: var(--wood-warm);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .quick-item .qi-value small {
+    font-size: 15px;
+    opacity: 0.7;
+    margin-left: 4px;
+  }
+  .quick-item .qi-label {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    opacity: 0.65;
+    font-weight: 400;
+  }
+
+  /* ================ CONTENT BLOCKS ================ */
+  section.content { padding: 100px 0; }
+
+  .block-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    color: var(--wood-cognac);
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  .block-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(32px, 3.4vw, 44px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin-bottom: 40px;
+    max-width: 22ch;
+  }
+  .block-title em { font-style: italic; color: var(--wood-cognac); font-weight: 300; }
+  .prose p {
+    font-size: 17px;
+    line-height: 1.78;
+    color: rgba(26,21,18,0.82);
+    margin-bottom: 22px;
+    font-weight: 300;
+  }
+  .prose p:last-child { margin-bottom: 0; }
+  .prose strong { font-weight: 500; color: var(--wood-espresso); }
+
+  /* ================ FICHA TÉCNICA TABLE ================ */
+  .ficha-tabela {
+    background: var(--wood-cream);
+    padding: 100px 0;
+  }
+  .ficha-tabela-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .ficha-tabela-side h2 {
+    font-family: var(--serif);
+    font-size: clamp(30px, 3.2vw, 42px);
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+  .ficha-tabela-side h2 em { font-style: italic; color: var(--wood-cognac); }
+  .ficha-tabela-side p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(26,21,18,0.68);
+    font-weight: 300;
+    margin-bottom: 24px;
+  }
+  .tabela-specs {
+    background: var(--wood-paper);
+    border: 1px solid var(--line);
+  }
+  .tabela-row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    padding: 20px 32px;
+    border-bottom: 1px solid var(--line-light);
+    align-items: baseline;
+    transition: background 0.25s;
+  }
+  .tabela-row:last-child { border-bottom: none; }
+  .tabela-row:hover { background: var(--wood-cream); }
+  .tabela-key {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(26,21,18,0.55);
+    font-weight: 500;
+  }
+  .tabela-val {
+    font-size: 15px;
+    color: var(--wood-espresso);
+    font-weight: 400;
+    line-height: 1.5;
+  }
+  .tabela-val em {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  /* ================ APLICAÇÕES ================ */
+  .aplicacoes {
+    padding: 100px 0;
+    background: var(--wood-paper);
+  }
+  .aplicacoes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 40px;
+  }
+  .aplicacao-card {
+    padding: 40px 36px;
+    border: 1px solid var(--line);
+    background: var(--wood-cream);
+    position: relative;
+    transition: transform 0.5s cubic-bezier(0.2,0.7,0.2,1), border-color 0.3s;
+  }
+  .aplicacao-card:hover { transform: translateY(-4px); border-color: var(--wood-warm); }
+  .aplicacao-card.no {
+    background: var(--wood-paper);
+  }
+  .aplicacao-tag {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--wood-cognac);
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: inline-block;
+  }
+  .aplicacao-card.no .aplicacao-tag { color: rgba(26,21,18,0.4); }
+  .aplicacao-card h3 {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    line-height: 1.2;
+  }
+  .aplicacao-card h3 em { font-style: italic; color: var(--wood-cognac); }
+  .aplicacao-list {
+    list-style: none;
+  }
+  .aplicacao-list li {
+    padding: 12px 0;
+    border-top: 1px solid var(--line-light);
+    font-size: 15px;
+    color: var(--wood-espresso);
+    display: flex;
+    gap: 14px;
+    align-items: baseline;
+    font-weight: 400;
+  }
+  .aplicacao-list li:first-child { border-top: none; padding-top: 6px; }
+  .aplicacao-list li::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--wood-warm);
+    border-radius: 50%;
+    flex-shrink: 0;
+    transform: translateY(-2px);
+  }
+  .aplicacao-card.no .aplicacao-list li::before {
+    background: none;
+    border: 1px solid rgba(26,21,18,0.3);
+  }
+
+  /* ================ CUIDADOS ================ */
+  .cuidados {
+    padding: 100px 0;
+    background: var(--wood-espresso);
+    color: var(--wood-paper);
+  }
+  .cuidados .block-eyebrow { color: var(--wood-warm); }
+  .cuidados .block-title { color: var(--wood-paper); }
+  .cuidados .block-title em { color: var(--wood-warm); }
+  .cuidados .prose p { color: rgba(245,239,228,0.82); }
+  .cuidados .prose strong { color: var(--wood-paper); }
+
+  /* ================ CURIOSIDADE ================ */
+  .curiosidade {
+    padding: 120px 0;
+    background: var(--wood-sand);
+    text-align: center;
+  }
+  .curiosidade .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--wood-cognac);
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+  .curiosidade blockquote {
+    font-family: var(--serif);
+    font-size: clamp(22px, 2.6vw, 32px);
+    line-height: 1.45;
+    color: var(--wood-espresso);
+    font-weight: 400;
+    font-style: italic;
+    max-width: 42ch;
+    margin: 0 auto;
+    position: relative;
+  }
+  .curiosidade blockquote::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--wood-cognac);
+    margin: 0 auto 30px;
+  }
+
+  /* ================ CTA ================ */
+  .ficha-cta {
+    padding: 100px 0;
+    background: var(--wood-paper);
+    text-align: center;
+  }
+  .ficha-cta h2 {
+    font-family: var(--serif);
+    font-size: clamp(30px, 3.6vw, 46px);
+    font-weight: 400;
+    line-height: 1.15;
+    max-width: 22ch;
+    margin: 0 auto 20px;
+  }
+  .ficha-cta h2 em { font-style: italic; color: var(--wood-cognac); }
+  .ficha-cta p {
+    font-size: 17px;
+    color: rgba(26,21,18,0.72);
+    max-width: 52ch;
+    margin: 0 auto 40px;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+  .btn {
+    display: inline-block;
+    padding: 16px 32px;
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: 1px solid transparent;
+  }
+  .btn-dark {
+    background: var(--wood-espresso);
+    color: var(--wood-paper);
+  }
+  .btn-dark:hover { background: var(--wood-cognac); }
+  .btn-outline {
+    background: transparent;
+    color: var(--wood-espresso);
+    border-color: var(--wood-espresso);
+  }
+  .btn-outline:hover { background: var(--wood-espresso); color: var(--wood-paper); }
+  .cta-actions {
+    display: inline-flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* ================ FOOTER MINI ================ */
+  .footer-mini {
+    background: var(--wood-black);
+    color: var(--wood-sand);
+    padding: 40px 0;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+  .footer-mini .logo {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 0.28em;
+    color: var(--wood-paper);
+    margin-bottom: 8px;
+  }
+  .footer-mini .sub {
+    opacity: 0.5;
+    letter-spacing: 0.16em;
+    font-size: 11px;
+  }
+
+  /* ================ RESPONSIVE ================ */
+  @media (max-width: 900px) {
+    .quick-specs-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+    .quick-item { border-left: none; }
+    .ficha-tabela-inner { grid-template-columns: 1fr; gap: 50px; }
+    .aplicacoes-grid { grid-template-columns: 1fr; gap: 30px; }
+    .tabela-row { grid-template-columns: 1fr; gap: 4px; padding: 18px 24px; }
+    section.content { padding: 70px 0; }
+    .ficha-tabela, .aplicacoes, .cuidados, .ficha-cta { padding: 70px 0; }
+    .curiosidade { padding: 80px 0; }
+  }
+  @media (max-width: 640px) {
+    .container, .container-narrow { padding: 0 20px; }
+    .ficha-hero { padding: 60px 0 70px; }
+    .ficha-hero::before { opacity: 0.18; width: 100%; right: 0; }
+    .ficha-hero h1 { font-size: clamp(50px, 15vw, 82px); }
+    .ficha-hero .cientifico { font-size: 17px; margin-bottom: 32px; }
+    .ficha-hero .lede { padding-left: 16px; font-size: 18px; }
+    .quick-specs { padding: 26px 0; }
+    .quick-specs-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .quick-item { border-left: none; padding: 4px 6px; }
+    .quick-item .qi-value { font-size: 24px; }
+    .quick-item .qi-value small { font-size: 12px; }
+    .quick-item .qi-label { font-size: 9px; }
+    section.content { padding: 60px 0; }
+    .block-title { font-size: clamp(24px, 7vw, 34px); }
+    .prose p { font-size: 16px; line-height: 1.7; }
+    .ficha-tabela { padding: 60px 0; }
+    .ficha-tabela-side h2 { font-size: clamp(24px, 7vw, 34px); }
+    .tabela-row { padding: 14px 20px; }
+    .tabela-key { font-size: 10px; }
+    .tabela-val { font-size: 14px; }
+    .aplicacoes { padding: 60px 0; }
+    .aplicacoes-grid { gap: 20px; }
+    .aplicacao-card { padding: 28px 22px; }
+    .aplicacao-card h3 { font-size: 22px; }
+    .aplicacao-list li { font-size: 14px; padding: 10px 0; }
+    .cuidados { padding: 60px 0; }
+    .curiosidade { padding: 70px 0; }
+    .curiosidade blockquote { font-size: clamp(18px, 5vw, 24px); }
+    .ficha-cta { padding: 70px 0; }
+    .ficha-cta h2 { font-size: clamp(24px, 7vw, 34px); }
+    .btn { padding: 15px 26px; min-height: 48px; }
+    .cta-actions { flex-direction: column; align-items: stretch; width: 100%; max-width: 320px; margin: 0 auto; }
+    .back-bar-meta { display: none; }
+  }
+  @media (max-width: 400px) {
+    .container, .container-narrow { padding: 0 16px; }
+    .ficha-hero h1 { font-size: clamp(44px, 14vw, 68px); }
+    .quick-item .qi-value { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ BACK BAR ============ -->
+<div class="back-bar">
+  <div class="container back-bar-inner">
+    <a href="index.html#essencias" class="back-link">
+      <span class="arrow"></span>
+      Voltar ao site
+    </a>
+    <div class="back-bar-meta">
+      Ficha Técnica <span>·</span> Essência 03 de 06
+    </div>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="ficha-hero">
+  <div class="container ficha-hero-content">
+    <div class="ficha-hero-eyebrow">Curadoria de essências</div>
+    <h1>Jatobá</h1>
+    <div class="cientifico">Hymenaea courbaril · família Fabaceae</div>
+    <p class="lede">O clássico brasileiro do assoalho. A madeira que aparece em documentários dos anos 1970 sobre casas paulistanas e continua aparecendo hoje — porque simplesmente não sai de moda.</p>
+  </div>
+</section>
+
+<!-- ============ QUICK SPECS ============ -->
+<div class="quick-specs">
+  <div class="container quick-specs-grid">
+    <div class="quick-item">
+      <div class="qi-value">960<small>kg/m³</small></div>
+      <div class="qi-label">Densidade</div>
+    </div>
+    <div class="quick-item">
+      <div class="qi-value">C60<small>NBR 7190</small></div>
+      <div class="qi-label">Classe de resistência</div>
+    </div>
+    <div class="quick-item">
+      <div class="qi-value">Interna<small>· Assoalho</small></div>
+      <div class="qi-label">Aplicação</div>
+    </div>
+    <div class="quick-item">
+      <div class="qi-value">FSC<small>/ DOF</small></div>
+      <div class="qi-label">Certificação</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SOBRE ============ -->
+<section class="content">
+  <div class="container-narrow">
+    <div class="reveal">
+      <div class="block-eyebrow">Sobre a essência</div>
+      <h2 class="block-title">A madeira que <em>definiu</em> o assoalho paulistano.</h2>
+    </div>
+    <div class="prose reveal">
+      <p>O jatobá é a madeira que definiu o que os brasileiros entendem por <em>"assoalho de madeira nobre"</em>. Se você cresceu em casa com piso de madeira no Brasil, há grande chance de ter pisado em jatobá — a cor âmbar avermelhada, quase caramelo, é uma das assinaturas visuais da arquitetura residencial brasileira do último século.</p>
+
+      <p>Do ponto de vista técnico, é uma madeira de densidade elevada (960 kg/m³), classe de resistência <strong>C60</strong> e altíssima resistência a cupins e fungos. Do ponto de vista poético, é uma árvore extraordinária: chega a 40 metros, vive mais de 400 anos, produz uma resina fóssil (âmbar) altamente valorizada. Cada assoalho de jatobá vem de uma árvore que, provavelmente, era mais velha que o país.</p>
+
+      <p>O que faz o jatobá funcionar tão bem em residência é o <strong>equilíbrio</strong>: densidade suficiente pra durar décadas em ambiente doméstico, mas trabalhabilidade boa o bastante pra permitir tacos, tábuas longas, paviflex, escadas — sem quebra excessiva na obra. E o veio marcado, quase gráfico, dá caráter ao ambiente sem competir com o mobiliário.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TABELA TÉCNICA ============ -->
+<section class="ficha-tabela">
+  <div class="container ficha-tabela-inner">
+    <div class="ficha-tabela-side reveal">
+      <div class="block-eyebrow">Ficha técnica</div>
+      <h2>Dados de <em>especificação.</em></h2>
+      <p>Todas as medições referem-se a madeira condicionada a 12% de umidade, padrão de laboratório para caracterização física.</p>
+      <p>Fontes: Embrapa, IPT (Instituto de Pesquisas Tecnológicas) e Laboratório de Produtos Florestais do Serviço Florestal Brasileiro.</p>
+    </div>
+    <div class="tabela-specs reveal">
+      <div class="tabela-row"><div class="tabela-key">Nome científico</div><div class="tabela-val"><em>Hymenaea courbaril</em></div></div>
+      <div class="tabela-row"><div class="tabela-key">Família</div><div class="tabela-val">Fabaceae</div></div>
+      <div class="tabela-row"><div class="tabela-key">Origem</div><div class="tabela-val">Amazônia, Cerrado, Mata Atlântica e América Central</div></div>
+      <div class="tabela-row"><div class="tabela-key">Densidade aparente</div><div class="tabela-val">960 kg/m³ (a 12% U)</div></div>
+      <div class="tabela-row"><div class="tabela-key">Classe de resistência (NBR 7190)</div><div class="tabela-val">C60</div></div>
+      <div class="tabela-row"><div class="tabela-key">Resistência à compressão paralela</div><div class="tabela-val">78,7 MPa</div></div>
+      <div class="tabela-row"><div class="tabela-key">Resistência à flexão</div><div class="tabela-val">159 MPa</div></div>
+      <div class="tabela-row"><div class="tabela-key">Cor do cerne</div><div class="tabela-val">Castanho-avermelhado a caramelo</div></div>
+      <div class="tabela-row"><div class="tabela-key">Cor do alburno</div><div class="tabela-val">Branco-amarelado (bem distinto)</div></div>
+      <div class="tabela-row"><div class="tabela-key">Textura</div><div class="tabela-val">Média</div></div>
+      <div class="tabela-row"><div class="tabela-key">Grã</div><div class="tabela-val">Regular a irregular</div></div>
+      <div class="tabela-row"><div class="tabela-key">Retratibilidade</div><div class="tabela-val">Média</div></div>
+      <div class="tabela-row"><div class="tabela-key">Classe de durabilidade</div><div class="tabela-val">Alta — altamente resistente a térmitas e fungos</div></div>
+      <div class="tabela-row"><div class="tabela-key">Certificação</div><div class="tabela-val">FSC disponível / DOF-Ibama obrigatório</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APLICAÇÕES ============ -->
+<section class="aplicacoes">
+  <div class="container">
+    <div class="reveal">
+      <div class="block-eyebrow">Aplicações</div>
+      <h2 class="block-title">Onde a madeira jatobá <em>funciona</em> — e onde não.</h2>
+    </div>
+
+    <div class="aplicacoes-grid">
+      <div class="aplicacao-card reveal">
+        <div class="aplicacao-tag">Recomendado</div>
+        <h3>Para <em>onde</em> especificar jatobá.</h3>
+        <ul class="aplicacao-list">
+          <li>Assoalhos residenciais em tábua larga (a estrela)</li>
+          <li>Tacos e parquets em desenho tradicional</li>
+          <li>Escadas internas</li>
+          <li>Móveis de linha pesada</li>
+          <li>Uso interno em geral</li>
+        </ul>
+      </div>
+
+      <div class="aplicacao-card no reveal">
+        <div class="aplicacao-tag">Peça outra essência</div>
+        <h3>Quando <em>outra madeira</em> resolve melhor.</h3>
+        <ul class="aplicacao-list">
+          <li>Áreas externas de exposição total (o jatobá se comporta melhor internamente)</li>
+          <li>Ambientes muito frios ou com luminosidade fria (o tom quente pode contrastar demais)</li>
+          <li>Projetos que buscam paleta minimalista clara</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CUIDADOS ============ -->
+<section class="cuidados">
+  <div class="container-narrow">
+    <div class="reveal">
+      <div class="block-eyebrow">Cuidados</div>
+      <h2 class="block-title">O <em>padrão</em> da madeira nobre.</h2>
+    </div>
+    <div class="prose reveal">
+      <p>Assoalho de jatobá pede o padrão de madeira nobre: aspiração ou vassoura de pêlo macio no dia a dia, pano quase seco com produto neutro na limpeza semanal. <strong>Evitar silicone, álcool puro e produtos abrasivos.</strong> Restauro completo (raspagem + acabamento novo) uma vez a cada 10-15 anos, dependendo do tráfego.</p>
+
+      <p>Uma característica particular do jatobá: por ser rica em taninos naturais, a madeira pode <em>escurecer levemente</em> nos primeiros meses após instalação, especialmente em áreas com exposição solar. Isso é natural e faz parte da <strong>maturação da cor</strong> — depois de cerca de 6 meses, o tom se estabiliza no âmbar avermelhado característico.</p>
+
+      <p>Para móveis e áreas de contato direto com pele (bancos, degraus), recomendamos acabamento com óleo natural em vez de verniz plastificado. Preserva a sensação tátil da madeira e é mais fácil de renovar pontualmente.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CURIOSIDADE ============ -->
+<section class="curiosidade">
+  <div class="container-narrow">
+    <div class="eyebrow">Uma curiosidade da carpintaria</div>
+    <blockquote>
+      A resina fossilizada de jatobás pré-históricos é uma das principais fontes de âmbar brasileiro. Insetos e folhas presos nessa resina há milhões de anos são hoje objeto de estudo paleontológico. É provavelmente a única madeira que você pode instalar em casa cuja árvore-mãe já foi personagem de museu de história natural.
+    </blockquote>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="ficha-cta">
+  <div class="container-narrow reveal">
+    <h2>Quer <em>ver e tocar</em> uma amostra de jatobá?</h2>
+    <p>Temos amostra física disponível no showroom em Morumbi e enviamos para escritórios de arquitetura em 48h. Nosso time técnico ajuda a decidir se jatobá é a essência certa para o seu projeto.</p>
+    <div class="cta-actions">
+      <a href="index.html#orcamento" class="btn btn-dark">Solicitar amostra</a>
+      <a href="index.html#essencias" class="btn btn-outline">Ver outras essências</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER MINI ============ -->
+<footer class="footer-mini">
+  <div class="container">
+    <div class="logo">ESSENZA</div>
+    <div class="sub">MADEIRAS · SÃO PAULO · MORUMBI</div>
+    <div style="margin-top: 20px; opacity: 0.4; font-size: 10px;">© 2026 Essenza Madeiras · Madeira de origem legal DOF/IBAMA</div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var targets = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window) || reduceMotion) {
+      targets.forEach(function (el) { el.classList.add('in-view'); });
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    targets.forEach(function (el) { observer.observe(el); });
+  })();
+</script>
+
+</body>
+</html>
